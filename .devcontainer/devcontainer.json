@@ -38,8 +38,9 @@
 			"extensions": [
 				"linkedinlearning.linkedinlearning-vscode-theme",
 				"ms-python.python",
-				"ms-python.vscode-pylance"
+				"ms-python.vscode-pylance",
 				// Additional Extensions Here
+				"ms-toolsai.jupyter"
 			]
 		}
 	},
