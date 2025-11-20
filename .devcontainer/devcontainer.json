@@ -40,7 +40,6 @@
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				// Additional Extensions Here
-				"ms-toolsai.jupyter"
 			]
 		}
 	},
