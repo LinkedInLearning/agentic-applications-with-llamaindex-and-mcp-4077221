@@ -29,10 +29,8 @@ def main():
         # TODO: Implement the vector search query for "breezy outfits for warm weather"
         response = None  # Replace this code
 
-        # TODO: loop through each object (in the response.objects list)
-        # and print the "name" property of each object (can be found in the obj.properties dictionary)
         for obj in response.objects:
-            pass # Replace this code
+            print(f"  - {obj.properties['name']}")
 
         # --- Keyword Search (BM25) ---
         print("\n--- 2. Keyword Search (by exact terms) ---")
