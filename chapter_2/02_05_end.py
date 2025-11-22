@@ -19,7 +19,7 @@ with weaviate.connect_to_weaviate_cloud(
     )
     print("✓ Query Agent initialized")
 
-    # Search mode - retrieval only
+    # 1. Use the agent in search mode
     print("\n--- Search results ---")
     search_response = qa.search(
         "Find me some vintage shoes under $70",
@@ -31,11 +31,12 @@ with weaviate.connect_to_weaviate_cloud(
         print(f"Name: {obj.properties['name']}")
         print(f"Price: ${obj.properties['price']:.2f}")
 
-    # Ask mode - retrieval + answer generation
+    # 2. Use the agent in ask mode
     print("\n--- Ask results ---")
     response = qa.ask(
         "I'm looking for a dress for a summer party. What can you recommend?"
     )
+
     print(response.final_answer)
 
 

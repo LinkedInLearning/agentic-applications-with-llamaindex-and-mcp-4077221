@@ -23,34 +23,35 @@ with weaviate.connect_to_weaviate_cloud(
     # Follow the lesson text to use the QueryAgent in `search` mode to find
     # "vintage shoes under $70".
     print("\n--- Search results ---")
-    search_response = None  # Replace this line
-    if search_response:
-        for obj in search_response.search_results.objects:
-            print(f"Name: {obj.properties['name']}")
-            print(f"Price: ${obj.properties['price']:.2f}")
+    search_response = None  # Replace this code
 
+    # Display results
+    for obj in search_response.search_results.objects:
+        print(f"Name: {obj.properties['name']}")
+        print(f"Price: ${obj.properties['price']:.2f}")
+
+    print("\n--- Ask results ---")
     # TODO: 2. Use the agent in ask mode
     # Follow the lesson text to use the QueryAgent in `ask` mode to recommend
     # a "dress for a summer party".
-    print("\n--- Ask results ---")
-    response = None  # Replace this line
-    if response:
-        print(response.final_answer)
+    response = None  # Replace this code
+
+    print(response.final_answer)
 
 
+    print("\n--- Conversation ---")
     # TODO: 3. Use the agent in a conversation
     # Follow the lesson text to have a two-step conversation with the agent.
-    # First, ask for footwear, then ask which of the results are under $80.
-    print("\n--- Conversation ---")
-
+    # First, ask for footwear recommendation
     initial_question = "Recommend some footwear for me."
-    initial_response = None  # Replace this line
-    if initial_response:
-        print(f"User: {initial_question}")
-        print(f"Agent: {initial_response.final_answer}")
+    initial_response = None  # Replace this code
 
+    print(f"User: {initial_question}")
+    print(f"Agent: {initial_response.final_answer}")
+
+    # TODO: Then, ask which of those are under $80
     follow_up_question = "Which of those are under $80?"
-    follow_up = None  # Replace this line
-    if follow_up and initial_response:
-        print(f"\nUser: {follow_up_question}")
-        print(f"Agent: {follow_up.final_answer}")
+    follow_up = None  # Replace this code
+
+    print(f"\nUser: {follow_up_question}")
+    print(f"Agent: {follow_up.final_answer}")

@@ -21,7 +21,7 @@ def main():
     ) as client:
         print("✓ Connected to Weaviate")
 
-        # --- Pattern 1: Defining the Agent's Persona with a System Prompt ---
+        # 1. Define the Agent's Persona with a System Prompt
         print("\n--- Pattern 1: System Prompt ---")
         fashion_expert_prompt = """
         You are a friendly and knowledgeable fashion expert specializing in vintage clothing.
@@ -39,7 +39,7 @@ def main():
         print(f"Agent Persona Response:\n{response.final_answer}\n")
 
 
-        # --- Pattern 2: Focusing the Agent on the Right Data ---
+        # 2. Focus the Agent on the Right Data
         print("\n--- Pattern 2: Focusing on the Right Data ---")
         qa_generic = QueryAgent(client=client, collections=["ECommerce"])
 
@@ -56,7 +56,7 @@ def main():
         response.display()
 
 
-        # --- Pattern 3: Creating a Specialized Agent with Persistent Filters ---
+        # 3. Create a Specialized Agent with Persistent Filters
         print("\n--- Pattern 3: Persistent Filters ---")
         luxury_bot = QueryAgent(
             client=client,
@@ -77,7 +77,7 @@ def main():
         response.display()
 
 
-        # --- Pattern 4: Improving User Experience with Streaming ---
+        # 4. Improve User Experience with Streaming
         print("\n--- Pattern 4: Streaming ---")
         # Use our persona agent from the first example
         response_generator = qa_with_persona.stream(

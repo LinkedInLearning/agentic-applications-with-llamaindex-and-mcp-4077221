@@ -30,6 +30,7 @@ def main():
             query="breezy outfits for warm weather",
             limit=2,
         )
+
         for obj in response.objects:
             print(f"  - {obj.properties['name']}")
 
@@ -39,6 +40,7 @@ def main():
             query="Vivid Verse",
             limit=2
         )
+
         for obj in response.objects:
             print(f"  - {obj.properties['name']}")
 
@@ -50,6 +52,7 @@ def main():
             limit=3,
             return_metadata=MetadataQuery(score=True)
         )
+
         for obj in response.objects:
             print(f"  - {obj.properties['name']} (Score: {obj.metadata.score:.4f})")
 
@@ -61,6 +64,7 @@ def main():
             filters=Filter.by_property("price").less_than(60),
             limit=3
         )
+
         for obj in response.objects:
             print(f"  - {obj.properties['name']} (${obj.properties['price']:.2f})")
 

@@ -36,6 +36,7 @@ def connect_to_weaviate() -> weaviate.WeaviateClient:
         cluster_url=os.getenv("WEAVIATE_URL", ""),
         auth_credentials=os.getenv("WEAVIATE_API_KEY", "")
     )
+
     if not client.is_ready():
         raise ConnectionError("Failed to connect to Weaviate Cloud")
     print("✓ Connected to Weaviate Cloud!")
@@ -71,6 +72,7 @@ def create_ecommerce_collection(client: weaviate.WeaviateClient) -> Collection:
             ),
         ]
     )
+
     print(f"✓ Collection '{collection.name}' created successfully!")
     return collection
 
@@ -106,12 +108,13 @@ def verify_data(collection: Collection):
     """
     print("\n[Step 3/3] Verifying data...")
 
-    # 1. Count objects
+    # 1. Count the total number of objects.
     total_count = len(collection.query.fetch_objects().objects)
+
     print(f"✓ 1. Total objects in collection: {total_count}")
     assert total_count > 0
 
-    # 2. Inspect a sample object
+    # 2. Fetch and inspect a sample object.
     response = collection.query.fetch_objects(limit=1)
     sample = response.objects[0]
     print(f"✓ 2. Sample object: {sample.properties['name']} by {sample.properties['brand']}")
@@ -123,6 +126,7 @@ def verify_data(collection: Collection):
         limit=1,
         return_metadata=MetadataQuery(distance=True)
     )
+
     search_result = response.objects[0]
     distance = search_result.metadata.distance
     print(f"✓ 3. Vector search for 'vintage shoes' returned '{search_result.properties['name']}' (distance: {distance:.4f})")
