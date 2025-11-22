@@ -20,7 +20,7 @@ with weaviate.connect_to_weaviate_cloud(
     print("✓ Query Agent initialized")
 
     # TODO: 1. Use the agent in search mode
-    # Follow the lesson text to use the QueryAgent in `search` mode to find
+    # Follow the lesson to use the QueryAgent in `search` mode to find
     # "vintage shoes under $70".
     print("\n--- Search results ---")
     search_response = None  # Replace this code
@@ -32,7 +32,7 @@ with weaviate.connect_to_weaviate_cloud(
 
     print("\n--- Ask results ---")
     # TODO: 2. Use the agent in ask mode
-    # Follow the lesson text to use the QueryAgent in `ask` mode to recommend
+    # Follow the lesson to use the QueryAgent in `ask` mode to recommend
     # a "dress for a summer party".
     response = None  # Replace this code
 
@@ -41,7 +41,7 @@ with weaviate.connect_to_weaviate_cloud(
 
     print("\n--- Conversation ---")
     # TODO: 3. Use the agent in a conversation
-    # Follow the lesson text to have a two-step conversation with the agent.
+    # Follow the lesson to have a two-step conversation with the agent.
     # First, ask for footwear recommendation
     initial_question = "Recommend some footwear for me."
     initial_response = None  # Replace this code

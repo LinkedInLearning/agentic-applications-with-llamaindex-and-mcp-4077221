@@ -22,7 +22,7 @@ def main():
         print("✓ Connected to Weaviate")
 
         # TODO: 1. Define the Agent's Persona with a System Prompt
-        # Follow the lesson text to create a QueryAgent with a custom system prompt
+        # Create a QueryAgent with a custom system prompt
         # that defines its persona as a "friendly and knowledgeable fashion expert".
         # Then, ask it for a recommendation for a "dress for a summer party".
         print("\n--- Pattern 1: System Prompt ---")
@@ -32,14 +32,14 @@ def main():
         highlighting its vintage appeal. Your tone should be helpful and stylish.
         """
 
-        qa_with_persona = None # Replace this code
+        qa_with_persona = None  # Replace this code
 
         response = None  # Replace this code
         print(f"Agent Persona Response:\n{response.final_answer}\n")
 
 
         # TODO: 2. Focus the Agent on the Right Data
-        # Follow the lesson text to configure the agent to only use the "name", "price",
+        # Configure the agent to only use the "name", "price",
         # and "brand" properties from the "ECommerce" collection.
         # Then, ask it to "Recommend something." for someone who likes "vintage clothes".
         print("\n--- Pattern 2: Focusing on the Right Data ---")
@@ -50,10 +50,10 @@ def main():
 
 
         # TODO: 3. Create a Specialized Agent with Persistent Filters
-        # Follow the lesson text to create a specialized "luxury bot" that can only
+        # Create a specialized "luxury bot" that can only
         # access handbags over $500.
         print("\n--- Pattern 3: Persistent Filters ---")
-        luxury_bot = None # Replace this code
+        luxury_bot = None  # Replace this code
 
         response = luxury_bot.ask("Find me an affordable t-shirt.")
         print("Specialized Luxury Bot Response:")
@@ -61,10 +61,10 @@ def main():
 
 
         # TODO: 4. Improve User Experience with Streaming
-        # Follow the lesson text to stream a response from the agent with the
+        # Stream a response from the agent with the
         # fashion expert persona. Ask it to "Recommend some footwear for me."
         print("\n--- Pattern 4: Streaming ---")
-        response_generator = None # Replace this code
+        response_generator = None  # Replace this code
 
         print("Streaming Agent Response:")
         print("Agent: ", end="")

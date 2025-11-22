@@ -33,10 +33,10 @@ if not all(key in os.environ for key in ["WEAVIATE_URL", "WEAVIATE_API_KEY"]):
 def connect_to_weaviate() -> weaviate.WeaviateClient:
     """Connect to Weaviate Cloud using environment variables."""
     # TODO: Connect to Weaviate Cloud
-    # Follow the instructions in the lesson text to implement this function.
+    # Implement this function.
     # It should connect to Weaviate Cloud using the credentials from the .env file
     # and return a weaviate.WeaviateClient instance.
-    client = None # Replace this code
+    client = None  # Replace this code
 
     if not client.is_ready():
         raise ConnectionError("Failed to connect to Weaviate Cloud")
@@ -55,9 +55,8 @@ def create_ecommerce_collection(client: weaviate.WeaviateClient) -> Collection:
         print(f"ℹ Deleted existing '{collection_name}' collection.")
 
     # TODO: Create the ECommerce collection
-    # Follow the instructions in the lesson text to implement this function.
-    # It should create a new collection named "ECommerce" with the specified schema.
-    collection = None # Replace this code
+    # Create a new collection named "ECommerce" with the specified schema.
+    collection = None  # Replace this code
 
     print(f"✓ Collection '{collection.name}' created successfully!")
     return collection
@@ -74,7 +73,10 @@ def import_data(collection: Collection):
     )
 
     # TODO: Import data from Hugging Face
-    # Follow the instructions in the lesson text to implement this function.
+    with collection.batch.fixed_size(100) as batch:
+        # Implement the batch import logic for the ecommerce dataset
+        # by iterating over the ecommerce dataset and adding each item to the batch
+        pass
 
     if collection.batch.failed_objects:
         print(f"⚠ Failed to import {len(collection.batch.failed_objects)} objects.")
@@ -96,14 +98,14 @@ def verify_data(collection: Collection):
 
     # 1. Count the total number of objects.
     # TODO: Count the total number of objects and assign it to the total_count variable.
-    total_count = None # Replace this code
+    total_count = None  # Replace this code
 
     print(f"✓ 1. Total objects in collection: {total_count}")
     assert total_count > 0
 
     # 2. Fetch and inspect a sample object.
     # TODO: Fetch and inspect a sample object and assign it to the sample variable.
-    response = None # Replace this code
+    response = None  # Replace this code
 
     sample = response.objects[0]
     print(f"✓ 2. Sample object: {sample.properties['name']} by {sample.properties['brand']}")

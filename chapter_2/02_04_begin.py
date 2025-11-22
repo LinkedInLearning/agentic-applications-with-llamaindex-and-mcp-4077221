@@ -27,7 +27,7 @@ def main():
         # --- Vector Search ---
         print("\n--- 1. Vector Search (by meaning) ---")
         # TODO: Implement the vector search query for "breezy outfits for warm weather"
-        response = None # Replace this code
+        response = None  # Replace this code
 
         # TODO: loop through each object (in the response.objects list)
         # and print the "name" property of each object (can be found in the obj.properties dictionary)
@@ -37,7 +37,7 @@ def main():
         # --- Keyword Search (BM25) ---
         print("\n--- 2. Keyword Search (by exact terms) ---")
         # TODO: Implement the keyword search for "Vivid Verse"
-        response = None # Replace this code
+        response = None  # Replace this code
 
         for obj in response.objects:
             print(f"  - {obj.properties['name']}")
@@ -45,7 +45,7 @@ def main():
         # --- Hybrid Search ---
         print("\n--- 3. Hybrid Search (best of both) ---")
         # TODO: Implement the hybrid search for "vintage floral dresses"
-        response = None # Replace this code
+        response = None  # Replace this code
 
         for obj in response.objects:
             print(f"  - {obj.properties['name']} (Score: {obj.metadata.score:.4f})")
@@ -53,7 +53,7 @@ def main():
         # --- Hybrid Search with Filter ---
         print("\n--- 4. Hybrid Search with Filter ---")
         # TODO: Implement the hybrid search for "summer tops" under $60
-        response = None # Replace this code
+        response = None  # Replace this code
 
         for obj in response.objects:
             print(f"  - {obj.properties['name']} (${obj.properties['price']:.2f})")
