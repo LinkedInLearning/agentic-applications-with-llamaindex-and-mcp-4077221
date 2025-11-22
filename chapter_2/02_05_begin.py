@@ -19,45 +19,38 @@ with weaviate.connect_to_weaviate_cloud(
     )
     print("✓ Query Agent initialized")
 
-    # Search mode - retrieval only
+    # TODO: 1. Use the agent in search mode
+    # Follow the lesson text to use the QueryAgent in `search` mode to find
+    # "vintage shoes under $70".
     print("\n--- Search results ---")
-    search_response = qa.search(
-        "Find me some vintage shoes under $70",
-        limit=3
-    )
+    search_response = None  # Replace this line
+    if search_response:
+        for obj in search_response.search_results.objects:
+            print(f"Name: {obj.properties['name']}")
+            print(f"Price: ${obj.properties['price']:.2f}")
 
-    # Display results
-    for obj in search_response.search_results.objects:
-        print(f"Name: {obj.properties['name']}")
-        print(f"Price: ${obj.properties['price']:.2f}")
-
-    # Ask mode - retrieval + answer generation
+    # TODO: 2. Use the agent in ask mode
+    # Follow the lesson text to use the QueryAgent in `ask` mode to recommend
+    # a "dress for a summer party".
     print("\n--- Ask results ---")
-    response = qa.ask(
-        "I'm looking for a dress for a summer party. What can you recommend?"
-    )
-    print(response.final_answer)
+    response = None  # Replace this line
+    if response:
+        print(response.final_answer)
 
 
-    # Handling Conversations
+    # TODO: 3. Use the agent in a conversation
+    # Follow the lesson text to have a two-step conversation with the agent.
+    # First, ask for footwear, then ask which of the results are under $80.
     print("\n--- Conversation ---")
 
-    # Initial question
     initial_question = "Recommend some footwear for me."
-    initial_response = qa.ask(initial_question)
-    print(f"User: {initial_question}")
-    print(f"Agent: {initial_response.final_answer}")
+    initial_response = None  # Replace this line
+    if initial_response:
+        print(f"User: {initial_question}")
+        print(f"Agent: {initial_response.final_answer}")
 
-
-    # Build conversation history for the follow-up
     follow_up_question = "Which of those are under $80?"
-    conversation = [
-        ChatMessage(role="user", content=initial_question),
-        ChatMessage(role="assistant", content=initial_response.final_answer),
-        ChatMessage(role="user", content=follow_up_question)
-    ]
-
-    # The agent understands "those" refers to the footwear from the previous turn
-    follow_up = qa.ask(conversation)
-    print(f"\nUser: {follow_up_question}")
-    print(f"Agent: {follow_up.final_answer}")
+    follow_up = None  # Replace this line
+    if follow_up and initial_response:
+        print(f"\nUser: {follow_up_question}")
+        print(f"Agent: {follow_up.final_answer}")

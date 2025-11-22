@@ -21,75 +21,47 @@ def main():
     ) as client:
         print("✓ Connected to Weaviate")
 
-        # --- Pattern 1: Defining the Agent's Persona with a System Prompt ---
+        # TODO: 1. Define the Agent's Persona with a System Prompt
+        # Follow the lesson text to create a QueryAgent with a custom system prompt
+        # that defines its persona as a "friendly and knowledgeable fashion expert".
+        # Then, ask it for a recommendation for a "dress for a summer party".
         print("\n--- Pattern 1: System Prompt ---")
-        fashion_expert_prompt = """
-        You are a friendly and knowledgeable fashion expert specializing in vintage clothing.
-        When asked for recommendations, provide a brief, enthusiastic description for each item,
-        highlighting its vintage appeal. Your tone should be helpful and stylish.
-        """
-
-        qa_with_persona = QueryAgent(
-            client=client,
-            collections=["ECommerce"],
-            system_prompt=fashion_expert_prompt
-        )
-
-        response = qa_with_persona.ask("I'm looking for a dress for a summer party.")
-        print(f"Agent Persona Response:\n{response.final_answer}\n")
+        response = None  # Replace this line
+        if response:
+            print(f"Agent Persona Response:\n{response.final_answer}\n")
 
 
-        # --- Pattern 2: Focusing the Agent on the Right Data ---
+        # TODO: 2. Focus the Agent on the Right Data
+        # Follow the lesson text to configure the agent to only use the "name", "price",
+        # and "brand" properties from the "ECommerce" collection.
+        # Then, ask it to "Recommend something." for someone who likes "vintage clothes".
         print("\n--- Pattern 2: Focusing on the Right Data ---")
-        qa_generic = QueryAgent(client=client, collections=["ECommerce"])
-
-        ecommerce_config = QueryAgentCollectionConfig(
-            name="ECommerce",
-            view_properties=["name", "price", "brand"]      # Limit the context for the LLM
-        )
-
-        response = qa_generic.ask(
-            "I like vintage clothes. Recommend something.",
-            collections=[ecommerce_config]
-        )
-        print("Focused Agent Response:")
-        response.display()
+        response = None  # Replace this line
+        if response:
+            print("Focused Agent Response:")
+            response.display()
 
 
-        # --- Pattern 3: Creating a Specialized Agent with Persistent Filters ---
+        # TODO: 3. Create a Specialized Agent with Persistent Filters
+        # Follow the lesson text to create a specialized "luxury bot" that can only
+        # access handbags over $500. Then, test it by asking it to
+        # "Find me an affordable t-shirt."
         print("\n--- Pattern 3: Persistent Filters ---")
-        luxury_bot = QueryAgent(
-            client=client,
-            collections=[
-                QueryAgentCollectionConfig(
-                    name="ECommerce",
-                    # This filter is ALWAYS applied for this agent
-                    additional_filters=(
-                        Filter.by_property("price").greater_than(500) &
-                        Filter.by_property("category").equal("Handbags")
-                    )
-                )
-            ]
-        )
-
-        response = luxury_bot.ask("Find me an affordable t-shirt.")
-        print("Specialized Luxury Bot Response:")
-        response.display()
+        response = None  # Replace this line
+        if response:
+            print("Specialized Luxury Bot Response:")
+            response.display()
 
 
-        # --- Pattern 4: Improving User Experience with Streaming ---
+        # TODO: 4. Improve User Experience with Streaming
+        # Follow the lesson text to stream a response from the agent with the
+        # fashion expert persona. Ask it to "Recommend some footwear for me."
         print("\n--- Pattern 4: Streaming ---")
-        # Use our persona agent from the first example
-        response_generator = qa_with_persona.stream(
-            "Recommend some footwear for me."
-        )
-
         print("Streaming Agent Response:")
         print("Agent: ", end="")
-        for chunk in response_generator:
-            if chunk.text:
-                print(chunk.text, end="", flush=True)
-        print("\n")
+        # Replace the line below with the streaming logic from the lesson
+        print("TODO: Implement streaming response.")
+
 
 if __name__ == "__main__":
     main()
