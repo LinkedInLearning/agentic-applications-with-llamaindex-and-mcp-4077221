@@ -30,6 +30,7 @@ if not all(key in os.environ for key in ["WEAVIATE_URL", "WEAVIATE_API_KEY"]):
         "Please create a .env file with your Weaviate Cloud credentials."
     )
 
+
 def connect_to_weaviate() -> weaviate.WeaviateClient:
     """Connect to Weaviate Cloud using environment variables."""
     # TODO: Connect to Weaviate Cloud
@@ -103,6 +104,7 @@ def verify_data(collection: Collection):
     print(f"✓ 1. Total objects in collection: {total_count}")
     assert total_count > 0
 
+
     # 2. Fetch and inspect a sample object.
     # TODO: Fetch and inspect a sample object and assign it to the sample variable.
     response = None  # Replace this code
@@ -110,6 +112,7 @@ def verify_data(collection: Collection):
     sample = response.objects[0]
     print(f"✓ 2. Sample object: {sample.properties['name']} by {sample.properties['brand']}")
     assert "brand" in sample.properties and "name" in sample.properties
+
 
     # 3. Test vector search
     # TODO: Perform a vector search to test the embeddings and assign it to the search_result variable.

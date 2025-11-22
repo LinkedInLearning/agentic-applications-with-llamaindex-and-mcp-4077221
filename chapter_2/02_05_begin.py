@@ -19,6 +19,7 @@ with weaviate.connect_to_weaviate_cloud(
     )
     print("✓ Query Agent initialized")
 
+
     # TODO: 1. Use the agent in search mode
     # Follow the lesson to use the QueryAgent in `search` mode to find
     # "vintage shoes under $70".
@@ -30,6 +31,7 @@ with weaviate.connect_to_weaviate_cloud(
         print(f"Name: {obj.properties['name']}")
         print(f"Price: ${obj.properties['price']:.2f}")
 
+
     print("\n--- Ask results ---")
     # TODO: 2. Use the agent in ask mode
     # Follow the lesson to use the QueryAgent in `ask` mode to recommend
@@ -39,8 +41,9 @@ with weaviate.connect_to_weaviate_cloud(
     print(response.final_answer)
 
 
-    print("\n--- Conversation ---")
     # TODO: 3. Use the agent in a conversation
+    print("\n--- Conversation ---")
+
     # Follow the lesson to have a two-step conversation with the agent.
     # First, ask for footwear recommendation
     initial_question = "Recommend some footwear for me."
@@ -49,8 +52,10 @@ with weaviate.connect_to_weaviate_cloud(
     print(f"User: {initial_question}")
     print(f"Agent: {initial_response.final_answer}")
 
+
     # TODO: Then, ask which of those are under $80
     follow_up_question = "Which of those are under $80?"
+
     follow_up = None  # Replace this code
 
     print(f"\nUser: {follow_up_question}")

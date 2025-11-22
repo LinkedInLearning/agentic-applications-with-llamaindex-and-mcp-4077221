@@ -21,6 +21,7 @@ def main():
     ) as client:
         print("✓ Connected to Weaviate")
 
+
         # 1. Define the Agent's Persona with a System Prompt
         print("\n--- Pattern 1: System Prompt ---")
         fashion_expert_prompt = """

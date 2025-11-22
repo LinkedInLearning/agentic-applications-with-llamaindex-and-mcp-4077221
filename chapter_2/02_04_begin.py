@@ -24,6 +24,7 @@ def main():
         collection = client.collections.get("ECommerce")
         print(f"✓ Collection '{collection.name}' is ready.")
 
+
         # --- Vector Search ---
         print("\n--- 1. Vector Search (by meaning) ---")
         # TODO: Implement the vector search query for "breezy outfits for warm weather"
@@ -31,6 +32,7 @@ def main():
 
         for obj in response.objects:
             print(f"  - {obj.properties['name']}")
+
 
         # --- Keyword Search (BM25) ---
         print("\n--- 2. Keyword Search (by exact terms) ---")
@@ -40,6 +42,7 @@ def main():
         for obj in response.objects:
             print(f"  - {obj.properties['name']}")
 
+
         # --- Hybrid Search ---
         print("\n--- 3. Hybrid Search (best of both) ---")
         # TODO: Implement the hybrid search for "vintage floral dresses"
@@ -47,6 +50,7 @@ def main():
 
         for obj in response.objects:
             print(f"  - {obj.properties['name']} (Score: {obj.metadata.score:.4f})")
+
 
         # --- Hybrid Search with Filter ---
         print("\n--- 4. Hybrid Search with Filter ---")

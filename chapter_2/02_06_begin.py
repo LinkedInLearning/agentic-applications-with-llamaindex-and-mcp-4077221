@@ -21,6 +21,7 @@ def main():
     ) as client:
         print("✓ Connected to Weaviate")
 
+
         # TODO: 1. Define the Agent's Persona with a System Prompt
         # Create a QueryAgent with a custom system prompt
         # that defines its persona as a "friendly and knowledgeable fashion expert".

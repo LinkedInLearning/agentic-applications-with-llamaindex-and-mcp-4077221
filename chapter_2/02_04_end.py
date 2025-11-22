@@ -24,6 +24,7 @@ def main():
         collection = client.collections.get("ECommerce")
         print(f"✓ Collection '{collection.name}' is ready.")
 
+
         # --- Vector Search ---
         print("\n--- 1. Vector Search (by meaning) ---")
         response = collection.query.near_text(
@@ -34,6 +35,7 @@ def main():
         for obj in response.objects:
             print(f"  - {obj.properties['name']}")
 
+
         # --- Keyword Search (BM25) ---
         print("\n--- 2. Keyword Search (by exact terms) ---")
         response = collection.query.bm25(
@@ -43,6 +45,7 @@ def main():
 
         for obj in response.objects:
             print(f"  - {obj.properties['name']}")
+
 
         # --- Hybrid Search ---
         print("\n--- 3. Hybrid Search (best of both) ---")
@@ -55,6 +58,7 @@ def main():
 
         for obj in response.objects:
             print(f"  - {obj.properties['name']} (Score: {obj.metadata.score:.4f})")
+
 
         # --- Hybrid Search with Filter ---
         print("\n--- 4. Hybrid Search with Filter ---")

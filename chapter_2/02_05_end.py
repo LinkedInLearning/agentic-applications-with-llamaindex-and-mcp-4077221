@@ -19,6 +19,7 @@ with weaviate.connect_to_weaviate_cloud(
     )
     print("✓ Query Agent initialized")
 
+
     # 1. Use the agent in search mode
     print("\n--- Search results ---")
     search_response = qa.search(
@@ -30,6 +31,7 @@ with weaviate.connect_to_weaviate_cloud(
     for obj in search_response.search_results.objects:
         print(f"Name: {obj.properties['name']}")
         print(f"Price: ${obj.properties['price']:.2f}")
+
 
     # 2. Use the agent in ask mode
     print("\n--- Ask results ---")
@@ -46,19 +48,21 @@ with weaviate.connect_to_weaviate_cloud(
     # Initial question
     initial_question = "Recommend some footwear for me."
     initial_response = qa.ask(initial_question)
+
     print(f"User: {initial_question}")
     print(f"Agent: {initial_response.final_answer}")
 
 
     # Build conversation history for the follow-up
     follow_up_question = "Which of those are under $80?"
+
     conversation = [
         ChatMessage(role="user", content=initial_question),
         ChatMessage(role="assistant", content=initial_response.final_answer),
         ChatMessage(role="user", content=follow_up_question)
     ]
+    follow_up = qa.ask(conversation)
 
     # The agent understands "those" refers to the footwear from the previous turn
-    follow_up = qa.ask(conversation)
     print(f"\nUser: {follow_up_question}")
     print(f"Agent: {follow_up.final_answer}")
