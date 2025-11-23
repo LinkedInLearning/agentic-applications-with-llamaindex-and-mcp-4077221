@@ -27,13 +27,13 @@ def main():
         # Connect to the ECommerce collection
         # TODO: Connect to the ECommerce collection
         # Use the `client.collections.use` method to connect to the ECommerce collection
-        collection = None
+        collection = client.collections.use("ECommerce")
 
         print(f"✓ Collection '{collection.name}' is ready.")
 
         # --- Vector Search ---
-        # TODO: Implement the vector search query for "breezy outfits for warm weather"
-        response = None  # Replace this code
+        # TODO: Implement the vector search query for "smart pants"
+        response = None
 
         if response:
             print("\n--- 1. Vector Search (by meaning) ---")
@@ -41,8 +41,8 @@ def main():
                 print(f"  - {obj.properties['name']}")
 
         # --- Keyword Search (BM25) ---
-        # TODO: Implement the keyword search for "Vivid Verse"
-        response = None  # Replace this code
+        # TODO: Implement the keyword search for "breezy bramble"
+        response = None
 
         if response:
             print("\n--- 2. Keyword Search (by exact terms) ---")
@@ -59,7 +59,7 @@ def main():
                 print(f"  - {obj.properties['name']} (Score: {obj.metadata.score:.4f})")
 
         # --- Hybrid Search with Filter ---
-        # TODO: Implement the hybrid search for "summer tops" under $60
+        # TODO: Implement the hybrid search for "vintage floral dresses" with price below 60
         response = None  # Replace this code
 
         if response:

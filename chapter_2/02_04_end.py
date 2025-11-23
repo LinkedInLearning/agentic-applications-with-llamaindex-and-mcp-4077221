@@ -30,7 +30,7 @@ def main():
         # --- Vector Search ---
         print("\n--- 1. Vector Search (by meaning) ---")
         response = collection.query.near_text(
-            query="breezy outfits for warm weather",
+            query="smart pants",
             limit=2,
         )
 
@@ -41,7 +41,7 @@ def main():
         # --- Keyword Search (BM25) ---
         print("\n--- 2. Keyword Search (by exact terms) ---")
         response = collection.query.bm25(
-            query="Vivid Verse",
+            query="breezy bramble",
             limit=2
         )
 
@@ -65,7 +65,7 @@ def main():
         # --- Hybrid Search with Filter ---
         print("\n--- 4. Hybrid Search with Filter ---")
         response = collection.query.hybrid(
-            query="summer tops",
+            query="vintage floral dresses",
             alpha=0.75,
             filters=Filter.by_property("price").less_than(60),
             limit=3
