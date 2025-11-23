@@ -21,7 +21,11 @@ def main():
         if not client.is_ready():
             raise ConnectionError("Could not connect to Weaviate")
 
-        collection = client.collections.use("ECommerce")
+        # Connect to the ECommerce collection
+        # TODO: Connect to the ECommerce collection
+        # Use the `client.collections.use` method to connect to the ECommerce collection
+        collection = None  # Replace this code
+
         print(f"✓ Collection '{collection.name}' is ready.")
 
 
