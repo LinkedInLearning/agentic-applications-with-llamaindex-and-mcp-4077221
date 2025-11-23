@@ -27,9 +27,10 @@ def main():
         # Connect to the ECommerce collection
         # TODO: Connect to the ECommerce collection
         # Use the `client.collections.use` method to connect to the ECommerce collection
-        collection = client.collections.use("ECommerce")
+        collection = None
 
-        print(f"✓ Collection '{collection.name}' is ready.")
+        if collection:
+            print(f"✓ Collection '{collection.name}' is ready.")
 
         # --- Vector Search ---
         # TODO: Implement the vector search query for "smart pants"
