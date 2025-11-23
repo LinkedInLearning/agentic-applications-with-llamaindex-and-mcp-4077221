@@ -1,4 +1,4 @@
 if [ -f requirements.txt ]; then
   pip install --user -r requirements.txt
-  brew install --cask claude-code
+  curl -fsSL https://claude.ai/install.sh | bash
 fi
