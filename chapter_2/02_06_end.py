@@ -2,7 +2,7 @@
 import os
 import weaviate
 from weaviate.agents.query import QueryAgent
-from weaviate.agents.classes import QueryAgentCollectionConfig
+from weaviate.agents.classes import QueryAgentCollectionConfig, ProgressMessage, StreamedTokens
 from weaviate.classes.query import Filter
 from weaviate.auth import AuthApiKey
 import dotenv
@@ -81,15 +81,23 @@ def main():
         # 4. Improve User Experience with Streaming
         print("\n--- Pattern 4: Streaming ---")
         # Use our persona agent from the first example
-        response_generator = qa_with_persona.stream(
+        response_generator = qa_with_persona.ask_stream(
             "Recommend some footwear for me."
         )
 
         print("Streaming Agent Response:")
         print("Agent: ", end="")
-        for chunk in response_generator:
-            if chunk.text:
-                print(chunk.text, end="", flush=True)
+        for output in response_generator:
+            if isinstance(output, ProgressMessage):
+                # The message is a human-readable string, structured info available in output.details
+                print(output.message)
+            elif isinstance(output, StreamedTokens):
+                # The delta is a string containing the next chunk of the final answer
+                print(output.delta, end="", flush=True)
+            else:
+                # This is the final response, as returned by QueryAgent.ask()
+                print("\nFinal response:")
+                output.display()
         print("\n")
 
 if __name__ == "__main__":
