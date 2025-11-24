@@ -28,6 +28,7 @@ with weaviate.connect_to_weaviate_cloud(
     )
 
     # Display results
+    print("Search mode query: Find me some vintage shoes under $70")
     for obj in search_response.search_results.objects:
         print(f"Name: {obj.properties['name']}")
         print(f"Price: ${obj.properties['price']:.2f}")
@@ -39,7 +40,18 @@ with weaviate.connect_to_weaviate_cloud(
         "I'm looking for a dress for a summer party. What can you recommend?"
     )
 
-    print(response.final_answer)
+    print("Ask mode query: I'm looking for a dress for a summer party. What can you recommend?")
+    print(f"Agent answer: {response.final_answer}")
+
+
+    # Aggregation queries
+    print("\n--- Ask results (aggregation) ---")
+    agg_response = qa.ask(
+        "How many items do we have in the 'Footwear' category, and what is the average price?"
+    )
+
+    print("Ask mode query: How many items do we have in the 'Footwear' category, and what is the average price?")
+    print(f"Agent answer: {agg_response.final_answer}")
 
 
     # Handling Conversations
