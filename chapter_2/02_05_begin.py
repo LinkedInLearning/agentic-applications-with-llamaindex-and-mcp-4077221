@@ -22,7 +22,7 @@ with weaviate.connect_to_weaviate_cloud(
 
     # TODO: 1. Use the agent in search mode
     # Follow the lesson to use the QueryAgent in `search` mode to find
-    # "vintage shoes under $70".
+    # "vintage floral dresses under $60".
     print("\n--- Search results ---")
     search_response = None  # Replace this code
 

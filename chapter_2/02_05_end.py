@@ -23,12 +23,12 @@ with weaviate.connect_to_weaviate_cloud(
     # 1. Use the agent in search mode
     print("\n--- Search results ---")
     search_response = qa.search(
-        "Find me some vintage shoes under $70",
+        "Find me some vintage floral dresses under $60",
         limit=3
     )
 
     # Display results
-    print("Search mode query: Find me some vintage shoes under $70")
+    print("Search mode query: Find me some vintage floral dresses under $60")
     for obj in search_response.search_results.objects:
         print(f"Name: {obj.properties['name']}")
         print(f"Price: ${obj.properties['price']:.2f}")
