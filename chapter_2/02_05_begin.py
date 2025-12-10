@@ -13,12 +13,8 @@ with weaviate.connect_to_weaviate_cloud(
     cluster_url=os.getenv("WEAVIATE_URL"),
     auth_credentials=AuthApiKey(os.getenv("WEAVIATE_API_KEY")),
 ) as client:
-    qa = QueryAgent(
-        client=client,
-        collections=["ECommerce"]
-    )
+    qa = QueryAgent(client=client, collections=["ECommerce"])
     print("✓ Query Agent initialized")
-
 
     # TODO: 1. Use the agent in search mode
     # Follow the lesson to use the QueryAgent in `search` mode to find
@@ -27,10 +23,10 @@ with weaviate.connect_to_weaviate_cloud(
     search_response = None  # Replace this code
 
     # Display results
-    for obj in search_response.search_results.objects:
-        print(f"Name: {obj.properties['name']}")
-        print(f"Price: ${obj.properties['price']:.2f}")
-
+    if search_response:
+        for obj in search_response.search_results.objects:
+            print(f"Name: {obj.properties['name']}")
+            print(f"Price: ${obj.properties['price']:.2f}")
 
     print("\n--- Ask results ---")
     # TODO: 2. Use the agent in ask mode
@@ -38,8 +34,8 @@ with weaviate.connect_to_weaviate_cloud(
     # a "dress for a summer party".
     response = None  # Replace this code
 
-    print(response.final_answer)
-
+    if response:
+        print(response.final_answer)
 
     # TODO: 3. Use the agent in a conversation
     print("\n--- Conversation ---")
@@ -49,14 +45,15 @@ with weaviate.connect_to_weaviate_cloud(
     initial_question = "Recommend some footwear for me."
     initial_response = None  # Replace this code
 
-    print(f"User: {initial_question}")
-    print(f"Agent: {initial_response.final_answer}")
-
+    if initial_response:
+        print(f"User: {initial_question}")
+        print(f"Agent: {initial_response.final_answer}")
 
     # TODO: Then, ask which of those are under $80
     follow_up_question = "Which of those are under $80?"
 
     follow_up = None  # Replace this code
 
-    print(f"\nUser: {follow_up_question}")
-    print(f"Agent: {follow_up.final_answer}")
+    if follow_up:
+        print(f"\nUser: {follow_up_question}")
+        print(f"Agent: {follow_up.final_answer}")
