@@ -1,17 +1,11 @@
 import asyncio
-import inspect
 import os
-
-asyncio.iscoroutinefunction = inspect.iscoroutinefunction
-
 from dotenv import load_dotenv
-from pydantic import BaseModel
 import weaviate
 from weaviate.auth import AuthApiKey
 from weaviate.agents.query import QueryAgent
-from llama_index.core.memory import Memory
 from llama_index.llms.openai import OpenAI
-from workflows import Context, Workflow, step
+from workflows import Workflow, step
 from workflows.events import Event, StartEvent, StopEvent
 
 load_dotenv()

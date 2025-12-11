@@ -6,6 +6,7 @@ from llama_index.core.agent.workflow import FunctionAgent
 from llama_index.llms.openai import OpenAI
 from datasets import load_dataset
 from llama_index.core import Document, VectorStoreIndex
+from llama_index.core.memory import Memory 
 
 from dotenv import load_dotenv
 
