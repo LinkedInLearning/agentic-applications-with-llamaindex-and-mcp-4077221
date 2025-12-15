@@ -13,7 +13,8 @@ with weaviate.connect_to_weaviate_cloud(
     cluster_url=os.getenv("WEAVIATE_URL"),
     auth_credentials=AuthApiKey(os.getenv("WEAVIATE_API_KEY")),
 ) as client:
-    qa = QueryAgent(client=client, collections=["ECommerce"])
+    # TODO: Instantiate the agent
+    qa = None
     print("✓ Query Agent initialized")
 
     # TODO: 1. Use the agent in search mode
