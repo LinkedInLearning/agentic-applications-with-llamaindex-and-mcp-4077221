@@ -26,6 +26,18 @@ To resolve this issue:
     Add changes to git using this command: git add .
 	Commit changes using this command: git commit -m "some message"
 
+## Instructors
+
+Joon-Pil Hwang
+
+Technical Curriculum Developer at Weaviate
+
+==============================
+
+Tuana Çelik
+
+Developer Relations and AI Engineering at LlamaIndex
+
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
